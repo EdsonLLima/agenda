@@ -25,27 +25,26 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
       return alert("E-mail já cadastrado!");
     }
 
-    if(Object.keys(dataEdit).length){
-      data[dataEdit.index]={name, email}
+    if (Object.keys(dataEdit).length) {
+      data[dataEdit.index] = { name, email };
     }
 
     const newDataArray = !Object.keys(dataEdit).length
-    ?[...(data ? data : []), {name, email}] : [...(data ? data : [])];
+      ? [...(data ? data : []), { name, email }]
+      : [...(data ? data : [])];
 
-    localStorage.setItem("cad_cliente", JSON.stringify(newDataArray))
-    setData(newDataArray)
+    localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
+    setData(newDataArray);
 
     onClose();
   };
 
-  const emailAlreadyExists = () =>{
+  const emailAlreadyExists = () => {
     if (dataEdit.email !== email && data?.length) {
-      return data.find((item) => item.email === email)
+      return data.find((item) => item.email === email);
     }
-    return false
-  }
-
-  }
+    return false;
+  };
 
   return (
     <>
@@ -75,10 +74,19 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
             </FormControl>
           </ModalBody>
           <ModalFooter justifyContent="start">
-            <Button colorScheme="green" mr={3} onClick={handleSave}>
+            <Button
+              textTransform="uppercase"
+              colorScheme="green"
+              mr={3}
+              onClick={handleSave}
+            >
               Salvar
             </Button>
-            <Button colorScheme="red" onClick={onClose}>
+            <Button
+              textTransform="uppercase"
+              colorScheme="red"
+              onClick={onClose}
+            >
               Cancelar
             </Button>
           </ModalFooter>
@@ -87,3 +95,5 @@ const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
     </>
   );
 };
+
+export default ModalComp;
