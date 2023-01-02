@@ -1,7 +1,5 @@
-function App() {
-  const [count, setCount] = useState(0);
-
-  return;
-}
+const App = () => {
+  return <h1>Óla mundo</h1>;
+};
 
 export default App;
