@@ -1,25 +1,21 @@
-import { useState } from "react";
-import agendaLogo from "../public/logo2.png";
-import "./App.css";
-
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div className="App">
-      <div>
-        <a href="#" target="_blank">
-          <img src={agendaLogo} className="logo agenda" alt="Agenda logo" />
-        </a>
-      </div>
-      <h1>App de Agendamento</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </div>
-  );
-}
+import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Flex,
+  Button,
+  useDisclosure,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import ModalComp from "./components/ModalComp";
+const App = () => {
+  return <h1>Óla mundo</h1>;
+};
 
 export default App;
