@@ -1,52 +1,59 @@
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Flex,
-  Button,
-  useDisclosure,
-  Table,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import ModalComp from "./components/ModalComp";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+// import {
+//   Box,
+//   Flex,
+//   Button,
+//   useDisclosure,
+//   Table,
+//   Thead,
+//   Tr,
+//   Th,
+//   Tbody,
+//   Td,
+//   useBreakpointValue,
+// } from "@chakra-ui/react";
+// import { useEffect, useState } from "react";
+// import ModalComp from "./components/ModalComp";
 import Signin from "./page/Signin";
+import Home from "./page/Home";
 import Users from "./page/Users";
 
 const App = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [data, setData] = useState([]);
-  const [dataEdit, setDataEdit] = useState([]);
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+  // const [data, setData] = useState([]);
+  // const [dataEdit, setDataEdit] = useState([]);
 
-  const isMobile = useBreakpointValue({
-    base: true,
-    lg: false,
-  });
+  // const isMobile = useBreakpointValue({
+  //   base: true,
+  //   lg: false,
+  // });
 
-  useEffect(() => {
-    const db_costumer = localStorage.getItem("cad_cliente")
-      ? JSON.parse(localStorage.getItem("cad_cliente"))
-      : [];
+  // useEffect(() => {
+  //   const db_costumer = localStorage.getItem("cad_cliente")
+  //     ? JSON.parse(localStorage.getItem("cad_cliente"))
+  //     : [];
 
-    setData(db_costumer);
-  }, [setData]);
+  //   setData(db_costumer);
+  // }, [setData]);
 
-  const handleRemove = (email) => {
-    const newArray = data.filter((item) => item.email !== email);
-    setData(newArray);
+  // const handleRemove = (email) => {
+  //   const newArray = data.filter((item) => item.email !== email);
+  //   setData(newArray);
 
-    localStorage.setItem("cad_cliente", JSON.stringify(newArray));
-  };
+  //   localStorage.setItem("cad_cliente", JSON.stringify(newArray));
+  // };
 
   return (
     <>
-      <Signin />
-      <Users />
-      <Flex
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/usuarios" element={<Users />}></Route>
+          <Route path="/entrar" element={<Signin />}></Route>
+        </Routes>
+      </BrowserRouter>
+      {/* <Flex
         h="100vh"
         align="cnter"
         justify="center"
@@ -111,7 +118,7 @@ const App = () => {
             setDataEdit={setDataEdit}
           />
         )}
-      </Flex>
+      </Flex> */}
     </>
   );
 };
