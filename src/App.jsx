@@ -4,8 +4,6 @@ import { Home } from "./page/Home";
 import { Users } from "./page/Users";
 import { Navbar } from "./components/Navbar";
 
-//https://gleeful-cranachan-687c59.netlify.app/
-
 const App = () => {
   return (
     <BrowserRouter>
