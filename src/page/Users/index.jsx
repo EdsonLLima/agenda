@@ -15,7 +15,7 @@ import {
 import { useEffect, useState } from "react";
 import ModalComp from "../../components/ModalComp";
 
-function Users() {
+export function Users() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [data, setData] = useState([]);
   const [dataEdit, setDataEdit] = useState([]);
@@ -111,5 +111,3 @@ function Users() {
     </>
   );
 }
-
-export default Users;
