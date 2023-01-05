@@ -1,5 +1,8 @@
-function Home() {
-  return <h1>Página principal</h1>;
+export function Home() {
+  return (
+    <>
+      <h1>Home</h1>
+      <p>Sem conteúdo no momento, tente outro link do menu</p>
+    </>
+  );
 }
-
-export default Home;
