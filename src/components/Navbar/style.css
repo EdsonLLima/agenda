@@ -42,3 +42,12 @@ ul li:last-child {
 ul li:hover {
   color: #f5f5f595;
 }
+
+@media (max-width: 425px) {
+  nav {
+    display: block;
+  }
+  img {
+    margin: 0 auto;
+  }
+}

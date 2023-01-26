@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "naumovs.color-highlight",
+        "vscode-icons-team.vscode-icons",
+        "ritwickdey.liveserver",
+        "styled-components.vscode-styled-components"
+    ]
+}
