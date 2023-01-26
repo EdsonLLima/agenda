@@ -1,35 +1,61 @@
-import agendaFetch from "../../axios/config";
-import { useState, useEffect } from "react";
-export function Home() {
-  const [list, setList] = useState([]);
+import agendaFetch from '../../axios/config';
+import { useState, useEffect } from 'react';
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react';
+import './style.css';
 
-  const getList = async () => {
+export function Home() {
+  const [client, setClient] = useState([]);
+
+  const getClient = async () => {
     try {
-      const response = await agendaFetch.get("/cliente");
+      const response = await agendaFetch.get('/cliente');
       const data = response.data;
-      setList(data);
+      setClient(data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getList();
+    getClient();
   }, []);
 
   return (
     <>
-      <h1>Home - Lista(Ainda não foi estilizado)</h1>
-      {list.length === 0 ? (
-        <p>carregando...</p>
+      <h1 className="title"> Agenda de Contatos</h1>
+      {client.length === 0 ? (
+        <p>Carregando...</p>
       ) : (
-        list.map((list) => (
-          <div className="list" key={list.id}>
-            <h2>{list.name}</h2>
-            <p>{list.phone}</p>
-            <p>{list.email}</p>
-          </div>
-        ))
+        <TableContainer>
+          <Table variant="striped" colorScheme="cyan" size="sm">
+            <Thead>
+              <Tr>
+                <Th>Nome</Th>
+                <Th>Telefone</Th>
+                <Th>E-mail</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {client.map((client) => (
+                <Tr className="client" key={client.id}>
+                  <Td>{client.name}</Td>
+                  <Td>{client.phone}</Td>
+                  <Td>{client.email}</Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
       )}
     </>
   );
