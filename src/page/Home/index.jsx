@@ -1,4 +1,5 @@
 import agendaFetch from '../../axios/config';
+import { IMaskInput } from 'react-imask';
 import { useState, useEffect } from 'react';
 import {
   Table,
@@ -49,7 +50,15 @@ export function Home() {
               {client.map((client) => (
                 <Tr className="client" key={client.id}>
                   <Td>{client.name}</Td>
-                  <Td>{client.phone}</Td>
+                  <Td className="phone">
+                    <IMaskInput
+                      type="tel"
+                      mask="(00) 00000-0000"
+                      value={client.phone.toString()}
+                      disabled
+                    ></IMaskInput>
+                  </Td>
+
                   <Td>{client.email}</Td>
                 </Tr>
               ))}
