@@ -19,8 +19,8 @@ export function Home() {
 
   const getClient = async () => {
     try {
-      const response = await agendaFetch.get('/cliente');
-      const data = response.data;
+      const response = await agendaFetch.get('/agenda');
+      const data = response.data.data;
       setClient(data);
     } catch (error) {
       console.log(error);
@@ -42,22 +42,22 @@ export function Home() {
             <Thead>
               <Tr>
                 <Th>Nome</Th>
-                <Th>Telefone</Th>
+                {/* <Th>Telefone</Th> */}
                 <Th>E-mail</Th>
               </Tr>
             </Thead>
             <Tbody>
               {client.map((client) => (
                 <Tr className="client" key={client.id}>
-                  <Td>{client.name}</Td>
-                  <Td className="phone">
+                  <Td>{client.nome}</Td>
+                  {/* <Td className="phone">
                     <IMaskInput
                       type="tel"
                       mask="(00) 00000-0000"
                       value={client.phone.toString()}
                       disabled
                     ></IMaskInput>
-                  </Td>
+                  </Td> */}
 
                   <Td>{client.email}</Td>
                 </Tr>
