@@ -15,7 +15,7 @@ export function Navbar() {
             <Link to="/usuarios">Usuários</Link>
           </li>
           <li>
-            <Link to="/entrar">Login</Link>
+            <Link to="/entrar">Acessar</Link>
           </li>
         </ul>
       </nav>
